@@ -1,0 +1,6 @@
+PROTRACTOR INCANTATION
+
+1) node.js aknas "webdriver-manager start"
+2) cmdis app kaustas "python -m http.server"
+3) uues node.js aknas e2e kaustas "protractor protractor.js"
+4) profit

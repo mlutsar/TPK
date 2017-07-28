@@ -1,0 +1,1427 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app\app.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">app/</a> app.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0.44% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>1/227</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/94</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/31</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0.44% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>1/226</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+// Declare app level module which depends on views, and components
+var myApp = angular.module('myApp', [
+    'ui.bootstrap'
+])
+.controller('MainController', ['$scope', '$timeout', <span class="fstat-no" title="function not covered" >function ($scope, $timeout) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $scope.temps = [</span>
+        {value: 0, text: "freezing."},
+        {value: 1, text: "cold."},
+        {value: 2, text: "mild."},
+        {value: 3, text: "warm."},
+        {value: 4, text: "hot."}
+    ];
+<span class="cstat-no" title="statement not covered" >    $scope.fireStates = [</span>
+        {value: 0, text: "dead."},
+        {value: 1, text: "smoldering."},
+        {value: 2, text: "flickering."},
+        {value: 3, text: "burning."},
+        {value: 4, text: "roaring."}
+    ];
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $scope.builderStates = [</span>
+        {value: 0, text: "a ragged stranger stumbles through the door and collapses in the corner."},
+        {value: 1, text: "the stranger shivers, and mumbles quietly. her words are unintelligible."},
+        {value: 2, text: "the stranger in the corner stops shivering. her breathing calms."},
+        {value: 3, text: "the stranger is standing by the fire. she says she can help. says she builds things."}
+    ];
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $scope.buildables = [</span>
+        {
+            name: "trap",
+            maximum: 10,
+            text: "builder says she can make traps to catch any creatures might still be alive out there.",
+            buildMsg: 'more traps to catch more creatures.',
+            maxMsg: "more traps won't help now."
+        },
+        {
+            name: "cart",
+            maximum: 1,
+            text: 'builder says she can make a cart for carrying wood.',
+            buildMsg: 'the rickety cart will carry more wood from the forest.',
+			maxMsg: "one cart is enough."
+        },
+        {
+            name: "hut",
+            maximum: 20,
+            text: "builder says there are more wanderers. says they'll work, too.",
+            buildMsg: 'builder puts up a hut, out in the forest. says word will get around.',
+            maxMsg: 'no more room for huts.'
+        }
+    ];
+	
+<span class="cstat-no" title="statement not covered" >	$scope.trapDrops = [</span>
+		{
+			rollUnder: 0.5,
+			name: 'fur',
+			message: 'scraps of fur'
+		},
+		{
+			rollUnder: 0.75,
+			name: 'meat',
+			message: 'bits of meat'
+		},
+		{
+			rollUnder: 0.9,
+			name: 'scales',
+			message: 'strange scales'
+		},
+		{
+			rollUnder: 1,
+			name: 'teeth',
+			message: 'scattered teeth'
+		}
+	];
+	
+<span class="cstat-no" title="statement not covered" >    $scope.STOKE_COOLDOWN = 10000;</span>
+<span class="cstat-no" title="statement not covered" >    $scope.NEED_WOOD_DELAY = 15000;</span>
+<span class="cstat-no" title="statement not covered" >    $scope.OTHER_DELAY = 30000;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $scope.story_message_index = 2;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $scope.storyMessages = [</span>
+		{id: 1, txt: "the fire is dead."},
+        {id: 0, txt: "the room is freezing."}
+    ];
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $scope.stores = {};</span>
+<span class="cstat-no" title="statement not covered" >    $scope.buildings = {};</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $scope.isForestFound = false;</span>
+<span class="cstat-no" title="statement not covered" >    $scope.isForestVisited = false;</span>
+<span class="cstat-no" title="statement not covered" >    $scope.isFireBurning = false;</span>
+<span class="cstat-no" title="statement not covered" >    $scope.fireText = "light fire";</span>
+<span class="cstat-no" title="statement not covered" >	$scope.woodText = "gather wood"</span>
+<span class="cstat-no" title="statement not covered" >	$scope.trapText = "check traps"</span>
+<span class="cstat-no" title="statement not covered" >    $scope.roomTitle = "A Dark Room";</span>
+<span class="cstat-no" title="statement not covered" >    $scope.outTitle = "A Silent Forest";</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $scope.isFireCooling = false;</span>
+<span class="cstat-no" title="statement not covered" >    $scope.isWoodCooling = false;</span>
+<span class="cstat-no" title="statement not covered" >    $scope.isTrapCooling = false;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $scope.isTrapButtonVisible = false;</span>
+<span class="cstat-no" title="statement not covered" >    $scope.isCartButtonVisible = false;</span>
+<span class="cstat-no" title="statement not covered" >    $scope.isHutButtonVisible = false;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $scope.isCollapsed = true;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $scope.fireNow = 0;</span>
+<span class="cstat-no" title="statement not covered" >    $scope.tempNow = 0;</span>
+<span class="cstat-no" title="statement not covered" >    $scope.builderNow = -1;</span>
+<span class="cstat-no" title="statement not covered" >    $scope.currentPopulation = 0;</span>
+<span class="cstat-no" title="statement not covered" >    $scope.maximumPopulation = 0;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $scope.stokeFire = <span class="fstat-no" title="function not covered" >function () {</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!$scope.isFireBurning) {</span>
+<span class="cstat-no" title="statement not covered" >            $scope.isFireBurning = true;</span>
+<span class="cstat-no" title="statement not covered" >            $scope.roomTitle = "A Firelit Room";</span>
+			//$scope.makeFireDie();
+        }
+<span class="cstat-no" title="statement not covered" >		$scope.fireText = "wait...";</span>
+<span class="cstat-no" title="statement not covered" >		if(!$scope.stores.hasOwnProperty('wood')) {</span>
+<span class="cstat-no" title="statement not covered" >			$scope.isFireCooling = true;</span>
+<span class="cstat-no" title="statement not covered" >			$scope.updateFire($scope.fireNow +1);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			$timeout(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >				$scope.fireText = "stoke fire";</span>
+<span class="cstat-no" title="statement not covered" >				$scope.isFireCooling = false;</span>
+			}, $scope.STOKE_COOLDOWN);
+		} else <span class="cstat-no" title="statement not covered" >if ($scope.stores.wood &gt; 1) {</span>
+<span class="cstat-no" title="statement not covered" >			$scope.stores.wood = $scope.stores.wood -1;</span>
+<span class="cstat-no" title="statement not covered" >			$scope.isFireCooling = true;</span>
+<span class="cstat-no" title="statement not covered" >			$scope.updateFire($scope.fireNow +1);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			$timeout(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >				$scope.fireText = "stoke fire";</span>
+<span class="cstat-no" title="statement not covered" >				$scope.isFireCooling = false;</span>
+			}, $scope.STOKE_COOLDOWN);
+		} else {
+<span class="cstat-no" title="statement not covered" >			$scope.stores.wood = $scope.stores.wood -1;</span>
+<span class="cstat-no" title="statement not covered" >			$scope.isFireCooling = true;</span>
+<span class="cstat-no" title="statement not covered" >			$scope.updateFire($scope.fireNow +1);</span>
+<span class="cstat-no" title="statement not covered" >			$scope.addStoryMessage("the wood runs out");</span>
+		}
+    };
+	
+	//somehow fubar's builder, leave out
+	/* 
+	var fireDying;
+	$scope.makeFireDie = function() {
+		if (angular.isDefined(fireDying)) return;
+		
+		fireDying = $interval(function() {
+			console.log("fire die" + $scope.fireNow)
+			if($scope.fireNow &gt; 1 &amp;&amp; $scope.tempNow &gt; 1) {
+				$scope.fireNow--;
+				$scope.tempNow--;
+				
+				$scope.addStoryMessage("the fire is " + $scope.fireStates[$scope.fireNow].text);
+				$scope.addStoryMessage("the room is " + $scope.temps[$scope.tempNow].text);
+			} else {
+				$scope.stopFireDying;
+			}
+		}, $scope.OTHER_DELAY);
+	}
+	
+	$scope.stopFireDying = function() {
+        if (angular.isDefined(fireDying)) {
+			$interval.cancel(fireDying);
+			fireDying = undefined;
+        }
+    }; 
+	*/
+	
+	//TODO:
+	//be grrm, kill villagers, burn huts
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $scope.updateFire = <span class="fstat-no" title="function not covered" >function (newState) {</span></span>
+<span class="cstat-no" title="statement not covered" >		console.log(newState);</span>
+<span class="cstat-no" title="statement not covered" >		if(newState &gt; 4) {</span>
+<span class="cstat-no" title="statement not covered" >			newState = 4;</span>
+		}
+<span class="cstat-no" title="statement not covered" >        $scope.fireNow = newState;</span>
+<span class="cstat-no" title="statement not covered" >		$scope.tempNow = newState;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.addStoryMessage("the fire is " + $scope.fireStates[$scope.fireNow].text);</span>
+<span class="cstat-no" title="statement not covered" >		$scope.addStoryMessage("the room is " + $scope.temps[$scope.tempNow].text);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if ($scope.fireNow &gt; 1 &amp;&amp; $scope.builderNow &lt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >            $scope.addStoryMessage("the light from the fire spills from the windows, out into the dark.");</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            $timeout(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                $scope.initBuilder();</span>
+            }, $scope.OTHER_DELAY);
+        }
+    };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $scope.initBuilder = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >		$scope.builderNow = 0;</span>
+<span class="cstat-no" title="statement not covered" >		$scope.addStoryMessage($scope.builderStates[$scope.builderNow].text); </span>//for some reason watch does not see 0, message manually
+		//builder 1
+<span class="cstat-no" title="statement not covered" >        $scope.builderNow = 1;</span>
+<span class="cstat-no" title="statement not covered" >        $timeout($scope.unlockForest, $scope.NEED_WOOD_DELAY);</span>
+		
+<span class="cstat-no" title="statement not covered" >		$timeout(<span class="fstat-no" title="function not covered" >function() {</span></span>
+			//builder 2
+<span class="cstat-no" title="statement not covered" >			$scope.builderNow = 2;</span>
+		}, $scope.OTHER_DELAY)
+		.then(<span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >			return $timeout(<span class="fstat-no" title="function not covered" >function() {</span></span>
+				//builder 3
+<span class="cstat-no" title="statement not covered" >				$scope.initializeCreature();</span>
+			}, $scope.OTHER_DELAY);
+		});
+    };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $scope.$watch('builderNow', <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >		if($scope.builderNow &gt; -1) {</span>
+<span class="cstat-no" title="statement not covered" >			$scope.addStoryMessage($scope.builderStates[$scope.builderNow].text);</span>
+		}
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $scope.initializeCreature = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >		$scope.builderNow = 3;</span>
+<span class="cstat-no" title="statement not covered" >		$scope.addStoryMessage("something is scraping near the door.");</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var trap = $scope.buildables[0];</span>
+<span class="cstat-no" title="statement not covered" >			$scope.buildings.trap = 0;</span>
+<span class="cstat-no" title="statement not covered" >            $scope.isTrapButtonVisible = true;</span>
+<span class="cstat-no" title="statement not covered" >            $scope.addStoryMessage(trap.text);</span>
+    };
+	
+<span class="cstat-no" title="statement not covered" >	$scope.$watchCollection('buildings', <span class="fstat-no" title="function not covered" >function(val) {</span></span>
+<span class="cstat-no" title="statement not covered" >		console.log("build change " + $scope.buildings.hasOwnProperty('hut'));</span>
+<span class="cstat-no" title="statement not covered" >		if($scope.buildings.hasOwnProperty('hut')) {</span>
+<span class="cstat-no" title="statement not covered" >			console.log($scope.buildings.hut);</span>
+<span class="cstat-no" title="statement not covered" >			$scope.maximumPopulation = $scope.getMaximumPopulation();</span>
+<span class="cstat-no" title="statement not covered" >			$scope.setOutsideTitle();</span>
+		}
+	});
+	
+<span class="cstat-no" title="statement not covered" >	$scope.setOutsideTitle = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >		var huts = $scope.buildings.hut;</span>
+<span class="cstat-no" title="statement not covered" >		if(huts === 0) {</span>
+<span class="cstat-no" title="statement not covered" >			$scope.outTitle = "A Silent Forest";</span>
+		} else <span class="cstat-no" title="statement not covered" >if(huts === 1) {</span>
+<span class="cstat-no" title="statement not covered" >			$scope.outTitle ="A Lonely Hut";</span>
+		} else <span class="cstat-no" title="statement not covered" >if(huts &lt;= 4) {</span>
+<span class="cstat-no" title="statement not covered" >			$scope.outTitle ="A Tiny Village";</span>
+		} else <span class="cstat-no" title="statement not covered" >if(huts &lt;= 8) {</span>
+<span class="cstat-no" title="statement not covered" >			$scope.outTitle ="A Modest Village";</span>
+		} else <span class="cstat-no" title="statement not covered" >if(huts &lt;= 14) {</span>
+<span class="cstat-no" title="statement not covered" >			$scope.outTitle ="A Large Village";</span>
+		} else {
+<span class="cstat-no" title="statement not covered" >			$scope.outTitle ="A Raucous Village";</span>
+		}		
+	};
+	
+<span class="cstat-no" title="statement not covered" >    $scope.createAnotherTrap = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >		var trap = $scope.buildings.hasOwnProperty('trap');</span>
+<span class="cstat-no" title="statement not covered" >        if ($scope.tempNow &lt; 2) {</span>
+<span class="cstat-no" title="statement not covered" >            $scope.addStoryMessage("the builder only shivers.");</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >			var cost = $scope.getTrapCost();</span>
+<span class="cstat-no" title="statement not covered" >			if(!$scope.stores.hasOwnProperty('wood') || $scope.stores.wood &lt; cost) {</span>
+<span class="cstat-no" title="statement not covered" >				$scope.addStoryMessage("not enough wood.");</span>
+			} else <span class="cstat-no" title="statement not covered" >if($scope.buildings.trap === $scope.buildables[0].maximum) {</span>
+<span class="cstat-no" title="statement not covered" >				$scope.addStoryMessage($scope.buildables[0].maxMsg);</span>
+			} else {
+<span class="cstat-no" title="statement not covered" >				$scope.addStoryMessage($scope.buildables[0].buildMsg);</span>
+<span class="cstat-no" title="statement not covered" >				$scope.buildings.trap++;</span>
+<span class="cstat-no" title="statement not covered" >				$scope.stores.wood = $scope.stores.wood - cost;</span>
+			}
+        }
+    };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	$scope.getTrapCost = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >		if(!$scope.buildings.hasOwnProperty('trap')) {</span>
+<span class="cstat-no" title="statement not covered" >			return 10;</span>
+		} else {
+<span class="cstat-no" title="statement not covered" >			return $scope.buildings.trap * 10 + 10;</span>
+		}
+	};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $scope.createCart = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        if ($scope.tempNow &lt; 2) {</span>
+<span class="cstat-no" title="statement not covered" >            $scope.addStoryMessage("the builder only shivers.");</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >            var cost = 30;</span>
+<span class="cstat-no" title="statement not covered" >			if(!$scope.stores.hasOwnProperty('wood') || $scope.stores.wood &lt; cost) {</span>
+<span class="cstat-no" title="statement not covered" >				$scope.addStoryMessage("not enough wood.");</span>
+			} else <span class="cstat-no" title="statement not covered" >if($scope.buildings.cart === $scope.buildables[1].maximum) {</span>
+<span class="cstat-no" title="statement not covered" >				$scope.addStoryMessage($scope.buildables[1].maxMsg);</span>
+			} else {
+<span class="cstat-no" title="statement not covered" >				$scope.addStoryMessage($scope.buildables[1].buildMsg);</span>
+<span class="cstat-no" title="statement not covered" >				$scope.buildings.cart = 1;</span>
+<span class="cstat-no" title="statement not covered" >				$scope.stores.wood = $scope.stores.wood - cost;</span>
+			}
+        }
+    };
+	
+<span class="cstat-no" title="statement not covered" >	$scope.$watchCollection('stores', <span class="fstat-no" title="function not covered" >function (val) {</span></span>
+<span class="cstat-no" title="statement not covered" >		if(val !== undefined &amp;&amp; val.hasOwnProperty('wood') &amp;&amp; val.wood &gt; 30) {</span>
+<span class="cstat-no" title="statement not covered" >			$scope.isCartButtonVisible = true;</span>
+<span class="cstat-no" title="statement not covered" >			if(!$scope.buildings.hasOwnProperty('cart')) {</span>
+<span class="cstat-no" title="statement not covered" >				$scope.addStoryMessage($scope.buildables[1].text);</span>
+<span class="cstat-no" title="statement not covered" >				$scope.buildings.cart = 0;</span>
+			}
+		}
+<span class="cstat-no" title="statement not covered" >		if(val !== undefined &amp;&amp; val.hasOwnProperty('wood') &amp;&amp; val.wood &gt; 100) {</span>
+<span class="cstat-no" title="statement not covered" >			$scope.isHutButtonVisible = true;</span>
+<span class="cstat-no" title="statement not covered" >			if(!$scope.buildings.hasOwnProperty('hut')) {</span>
+<span class="cstat-no" title="statement not covered" >				$scope.addStoryMessage($scope.buildables[2].text);</span>
+<span class="cstat-no" title="statement not covered" >				$scope.buildings.hut = 0;</span>
+			}
+		}
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $scope.createHut = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        if ($scope.tempNow &lt; 2) {</span>
+<span class="cstat-no" title="statement not covered" >            $scope.addStoryMessage("the builder only shivers.");</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >            var cost = $scope.getHutCost();</span>
+<span class="cstat-no" title="statement not covered" >			if(!$scope.stores.hasOwnProperty('wood') || $scope.stores.wood &lt; cost) {</span>
+<span class="cstat-no" title="statement not covered" >				$scope.addStoryMessage("not enough wood.");</span>
+			} else <span class="cstat-no" title="statement not covered" >if($scope.buildings.hut === $scope.buildables[2].maximum) {</span>
+<span class="cstat-no" title="statement not covered" >				$scope.addStoryMessage($scope.buildables[2].maxMsg);</span>
+			} else {
+<span class="cstat-no" title="statement not covered" >				$scope.addStoryMessage($scope.buildables[2].buildMsg);</span>
+<span class="cstat-no" title="statement not covered" >				$scope.buildings.hut++;</span>
+<span class="cstat-no" title="statement not covered" >				$scope.stores.wood = $scope.stores.wood - cost;</span>
+			}
+			//people shouldn't come every time we build a hut, that's boring.
+<span class="cstat-no" title="statement not covered" >			var peopleComingNow = Math.random();</span>
+<span class="cstat-no" title="statement not covered" >			if(peopleComingNow &gt; 0.4) {</span>
+<span class="cstat-no" title="statement not covered" >				$scope.increasePopulation();</span>
+			}
+        }
+    };
+	
+<span class="cstat-no" title="statement not covered" >	$scope.getHutCost = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >		if(!$scope.buildings.hasOwnProperty('hut')) {</span>
+<span class="cstat-no" title="statement not covered" >			return 100;</span>
+		} else {
+<span class="cstat-no" title="statement not covered" >			return $scope.buildings.hut * 100 + 50;</span>
+		}
+	};
+	
+<span class="cstat-no" title="statement not covered" >	$scope.increasePopulation = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >		var space = $scope.maximumPopulation - $scope.currentPopulation;</span>
+<span class="cstat-no" title="statement not covered" >		if(space &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >			var arrivals = Math.floor(Math.random()*(space/2));</span>
+<span class="cstat-no" title="statement not covered" >			if(arrivals === 0) <span class="cstat-no" title="statement not covered" >arrivals = 1;</span></span>
+<span class="cstat-no" title="statement not covered" >			if(arrivals == 1) {</span>
+<span class="cstat-no" title="statement not covered" >				$scope.addStoryMessage('a stranger arrives in the night');</span>
+			} else <span class="cstat-no" title="statement not covered" >if(arrivals &lt; 5) {</span>
+<span class="cstat-no" title="statement not covered" >				$scope.addStoryMessage('a weathered family takes up in one of the huts.');</span>
+			} else <span class="cstat-no" title="statement not covered" >if(arrivals &lt; 10) {</span>
+<span class="cstat-no" title="statement not covered" >				$scope.addStoryMessage('a small group arrives, all dust and bones.');</span>
+			} else <span class="cstat-no" title="statement not covered" >if(arrivals &lt; 30) {</span>
+<span class="cstat-no" title="statement not covered" >				$scope.addStoryMessage('a convoy lurches in, equal parts worry and hope.');</span>
+			} else {
+<span class="cstat-no" title="statement not covered" >				$scope.addStoryMessage("the town's booming. word does get around.");</span>
+			}
+<span class="cstat-no" title="statement not covered" >			$scope.currentPopulation += arrivals;</span>
+		}
+	};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $scope.gatherWood = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        $scope.addStoryMessage("dry brush and dead branches litter the forest floor.");</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var gatherAmount = 0;</span>
+<span class="cstat-no" title="statement not covered" >        if (!$scope.buildings.hasOwnProperty('cart')) {</span>
+<span class="cstat-no" title="statement not covered" >            gatherAmount = 10;</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >            gatherAmount = 50;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!$scope.stores.hasOwnProperty('wood')) {</span>
+<span class="cstat-no" title="statement not covered" >            $scope.stores.wood = gatherAmount;</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >            $scope.stores.wood = $scope.stores.wood + gatherAmount;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        $scope.isWoodCooling = true;</span>
+<span class="cstat-no" title="statement not covered" >		$scope.woodText = "wait...";</span>
+<span class="cstat-no" title="statement not covered" >        $timeout(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >            $scope.isWoodCooling = false;</span>
+<span class="cstat-no" title="statement not covered" >			$scope.woodText = "gather wood";</span>
+        }, $scope.OTHER_DELAY);
+    };
+	
+<span class="cstat-no" title="statement not covered" >	$scope.checkTraps = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >		var caught = {fur: 0, meat: 0, scales: 0, teeth: 0};</span>
+<span class="cstat-no" title="statement not covered" >		var numberOfTraps = $scope.buildings.trap;</span>
+		
+<span class="cstat-no" title="statement not covered" >		for(var i = 0; i &lt; numberOfTraps; i++) {</span>
+<span class="cstat-no" title="statement not covered" >			var roll = Math.random();</span>
+<span class="cstat-no" title="statement not covered" >			angular.forEach($scope.trapDrops, <span class="fstat-no" title="function not covered" >function(drop) {</span></span>
+<span class="cstat-no" title="statement not covered" >				var dropName = drop.name;</span>
+<span class="cstat-no" title="statement not covered" >				if(roll &lt; drop.rollUnder) {</span>
+<span class="cstat-no" title="statement not covered" >					caught[dropName]++;</span>
+				}
+			});
+		}
+		
+<span class="cstat-no" title="statement not covered" >		var catchText = "the traps contain ";</span>
+<span class="cstat-no" title="statement not covered" >		angular.forEach(caught, <span class="fstat-no" title="function not covered" >function(c) {</span></span>
+<span class="cstat-no" title="statement not covered" >			if(c &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >				catchText += $scope.trapDrops[c].message;</span>
+			}
+		});
+		
+<span class="cstat-no" title="statement not covered" >		$scope.addStoryMessage(catchText);</span>
+<span class="cstat-no" title="statement not covered" >		$scope.isTrapCooling = true;</span>
+<span class="cstat-no" title="statement not covered" >		$scope.trapText = "wait...";</span>
+<span class="cstat-no" title="statement not covered" >        $timeout(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >            $scope.isTrapCooling = false;</span>
+<span class="cstat-no" title="statement not covered" >			$scope.woodText = "check traps";</span>
+        }, $scope.OTHER_DELAY);
+		//TODO: add to stores		
+	}; 
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $scope.arriveToForest = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (!$scope.isForestVisited) {</span>
+<span class="cstat-no" title="statement not covered" >            $scope.addStoryMessage("the sky is grey and the wind blows relentlessly.");</span>
+<span class="cstat-no" title="statement not covered" >            $scope.isForestVisited = true;</span>
+        }
+    };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $scope.unlockForest = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        $scope.stores.wood = 4;</span>
+        //$scope.stores.push({thing:"wood", amount:4}); //which one?
+<span class="cstat-no" title="statement not covered" >        $scope.isForestFound = true;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.addStoryMessage("the wind howls outside.");</span>
+<span class="cstat-no" title="statement not covered" >        $scope.addStoryMessage("the wood is running out.");</span>
+    };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $scope.getMaximumPopulation = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        if(!$scope.buildings.hasOwnProperty('hut')) {</span>
+<span class="cstat-no" title="statement not covered" >            return 0;</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >            return $scope.buildings.hut * 4;</span>
+        }
+    };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $scope.addStoryMessage = <span class="fstat-no" title="function not covered" >function (text) {</span></span>
+        //ng-repeat does not like multiples of same message, so they must be wrapped in an object
+<span class="cstat-no" title="statement not covered" >        var messageObject = {id: $scope.story_message_index, txt: text};</span>
+<span class="cstat-no" title="statement not covered" >        $scope.story_message_index++;</span>
+<span class="cstat-no" title="statement not covered" >        $scope.storyMessages.unshift(messageObject);</span>
+    };
+}]);</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Dec 13 2015 10:01:12 GMT+0200 (FLE Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

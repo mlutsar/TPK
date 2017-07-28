@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>A Dark Room</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="components/bootstrap.css">
+</head>
+<body>
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div class="wrapper" ng-controller="MainCtrl">
+    <div class="storyMessages">
+        <p ng-repeat="message in storyMessages track by $index | limitTo: 15">
+            {{message}}
+        </p>
+    </div>
+    <div class="gameDiv">
+        <div class="midDiv">
+            <uib-tabset>
+                <uib-tab heading="{{room.title}}">
+                    <div class="stuffDiv">
+                        <div class="col-sm-3">
+                            <button id="fireButton" ng-click="stokeFire()" ng-disabled="room.isFireCooling">{{room.fireText}}</button>
+                        </div>
+                        <div class="col-sm-3" ng-show="isTrapButtonVisible">
+                            <button ng-click="createTrap()">trap</button>
+                        </div>
+                        <div class="col-sm-3" ng-show="isCartButtonVisible">
+                            <button ng-click="createCart()">cart</button>
+                        </div>
+                        <div class="col-sm-3" ng-show="isHutButtonVisible">
+                            <button ng-click="createHut()">hut</button>
+                        </div>
+                    </div>
+                </uib-tab>
+                <uib-tab heading="{{outside.title}}" ng-show="outside.isForestFound" ng-click="arriveToForest()">
+                    <div class="stuffDiv">
+                        <div class="col-sm-3">
+                            <button ng-click="gatherWood()" ng-disabled="outside.isWoodCooling">{{outside.woodText}}</button>
+                        </div>
+						<div class="col-sm-3" ng-show="buildings.trap > 0">
+                            <button ng-click="checkTraps()" ng-disabled="outside.isTrapCooling">{{outside.trapText}}</button>
+                        </div>
+                    </div>
+                </uib-tab>
+            </uib-tabset>
+        </div>
+        <div class="countDiv">
+            <div class="housesDiv">
+                <p>population: {{outside.currentPopulation}}/{{outside.maximumPopulation}}</p>
+                <ul>
+					<li ng-repeat="(key, value) in buildings">
+                        {{key}} {{value}}
+                    </li>
+                </ul>
+            </div>
+            <div class="storesDiv" ng-show="isStoresVisible">
+                <p>stores:</p>
+                <ul>
+                    <li ng-repeat="(key, value) in stores">
+                        {{key}} {{value}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div uib-collapse="isCollapsed">
+    <div class="credits">
+        <p>a partial recreation/adaption of "a dark room" by doublespeak games.</p>
+
+        <p>the original, which is <strong>much</strong> better game, can be found <a
+                href="http://adarkroom.doublespeakgames.com/">here</a>.</p>
+    </div>
+</div>
+<button ng-click="isCollapsed = !isCollapsed" class="creditButton">toggle credits</button>
+
+<script src="components/angular.js"></script>
+<script src="components/angular-mocks.js"></script>
+<script src="components/ui-bootstrap-tpls-0.14.3.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
